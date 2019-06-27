@@ -81,9 +81,10 @@ class ThermostatController extends React.Component {
 
     handleTemp( direction) {
         if (direction === 'up') {
+
             var temp = this.state.TemperatureSetting + 1;
             fetch(`/api/Thermostats/${this.state.Code}/temperature/${temp}`).then(() => {
-                this.setState({ TemperatureSetting: temp });
+                this.setState({ TemperatureSetting: temp });    
             });
         }
         else {
