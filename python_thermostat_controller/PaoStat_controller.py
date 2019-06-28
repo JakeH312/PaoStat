@@ -1,12 +1,28 @@
-import requests 
+# Import requests library
+import requests
+import json
+# api-endpoint
 
+URL = "https://localhost:44346/api/Thermostats"
 
+# send get request and save response as response object
 
-r = requests.get(‘/api/Thermostats/B827EB3B6BC8’)
+r = requests.get(url=URL, verify=False)
+
 r.status_code
->>200
 
-r.status_code == requests.codes.ok
->>>True
+print(r)
+# convert data to json format
 
-requests.codes['temporary_redirect']
+json_data = r.json()
+
+print(json_data)
+
+# json_string = json.dumps(json_data)
+
+# #
+# #print(json_data[0])
+# #print(json_string)
+# print(json_string[:])
+
+# data =
