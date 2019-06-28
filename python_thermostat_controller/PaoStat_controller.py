@@ -9,20 +9,11 @@ URL = "https://localhost:44346/api/Thermostats"
 
 r = requests.get(url=URL, verify=False)
 
-r.status_code
+loadedJson = json.loads(r.text)
 
-print(r)
-# convert data to json format
+# Do we need this?
 
-json_data = r.json()
+# json_data = r.json()
 
-print(json_data)
-
-# json_string = json.dumps(json_data)
-
-# #
-# #print(json_data[0])
-# #print(json_string)
-# print(json_string[:])
-
-# data =
+# index and then field you want to index
+print(loadedJson[0]['code'])
