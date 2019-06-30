@@ -11,9 +11,10 @@ r = requests.get(url=URL, verify=False)
 
 loadedJson = json.loads(r.text)
 
-# Do we need this?
-
-# json_data = r.json()
-
-# index and then field you want to index
+# index and then field you want to index.. [index][key]
 print(loadedJson[0]['code'])
+print(loadedJson[0]['name'])
+print(loadedJson[0]['temperatureReading'])
+print(loadedJson[0]['temperatureSetting'])
+
+
