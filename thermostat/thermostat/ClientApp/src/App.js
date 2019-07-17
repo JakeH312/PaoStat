@@ -59,21 +59,25 @@ class ThermostatController extends React.Component {
 
     render() {
         return (
-            <div className={'card'} style={{ width: 300 + 'px' }}>
+            <div className={'card'} style={{ width: 600 + 'px'}}>
                 <div className={'card-header'}>
                     <p>{this.state.Code}</p>
                 </div>
-                <div className={'card-body'}>
+
+
+                <div className={'card-body'} >
                     <p>Temperature Set</p>
                     <h1>{this.state.TemperatureSetting}</h1>
                     <p> Current Temperature </p>
                     <h1>{this.state.TemperatureReading}</h1>
+
                     <button onClick={() => this.handleTemp('up')}>
                         Raise Temperature
                                 </button>
                     <button onClick={() => this.handleTemp('down')}>
                         Lower Temperature
                                 </button>
+
                 </div>
             </div>
         )

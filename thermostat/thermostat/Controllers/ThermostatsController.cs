@@ -55,5 +55,32 @@ namespace thermostat.Controllers
 
             return Ok(ThermostatGetDtoConversion(thermostat));
         }
+
+
+        [HttpGet("{code}/temperaturereading/{newReading}")]
+        public async Task<ActionResult<ThermostatGetDto>> UpdateTemperatureReading([FromRoute]string code, [FromRoute]double newReading)
+        {
+            var thermostat = await GetThermostatByCode(code);
+
+            if (thermostat == null) return BadRequest($"No Thermostats exist with the code provided: {code}");
+
+            thermostat.TemperatureReading = newReading;
+            await DataContext.SaveChangesAsync();
+
+            return Ok(ThermostatGetDtoConversion(thermostat));
+        }
+
+
+        [HttpGet("{code}/temperaturereading")]
+        public async Task<ActionResult<Double>> UpdateTemperatureReading([FromRoute]string code)
+        {
+            var thermostat = await GetThermostatByCode(code);
+            return thermostat != null ? (ActionResult)Ok(thermostat.TemperatureReading) : NotFound();
+        }
+
+
+
+
+
     }
 }
